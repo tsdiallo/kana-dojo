@@ -12,7 +12,7 @@
   "crons": [
     {
       "path": "/api/trigger-community-issue",
-      "schedule": "7,22,37,52 * * * *"
+      "schedule": "0 12 * * *"
     }
   ],
   "headers": [
