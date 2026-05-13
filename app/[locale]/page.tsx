@@ -1,4 +1,4 @@
-import LandingPage from '@/features/LandingPage';
+import AdaptiveHome from '@/features/Home/AdaptiveHome';
 import type { Metadata } from 'next';
 import { generatePageMetadata } from '@/core/i18n/metadata-helpers';
 import { routing } from '@/core/i18n/routing';
@@ -19,5 +19,5 @@ export async function generateMetadata({
 }
 
 export default function Home() {
-  return <LandingPage />;
+  return <AdaptiveHome />;
 }

@@ -25,6 +25,7 @@ import clsx from 'clsx';
 
 import { Link } from '@/core/i18n/routing';
 import { useClick } from '@/shared/hooks/generic/useAudio';
+import useGameStore from '@/shared/store/useGameStore';
 import GoldenLion from './GoldenLion';
 
 const GOLD = '#F5C518';
@@ -147,6 +148,14 @@ const legalLinks = [
 
 const LandingPage = () => {
   const { playClick } = useClick();
+  const markStarted = useGameStore(s => s.markStarted);
+
+  /** Click handler for any "enter the dojo" CTA — flips the store flag
+   * so the next visit to `/` renders the Dashboard. */
+  const onStart = () => {
+    playClick();
+    markStarted();
+  };
 
   return (
     <div
@@ -320,7 +329,7 @@ const LandingPage = () => {
                 <Link
                   href='/learn-hiragana'
                   prefetch
-                  onClick={() => playClick()}
+                  onClick={onStart}
                   className={clsx(
                     'group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-4 text-lg font-black tracking-wide uppercase',
                     'border-b-[6px] border-black bg-black text-white',
@@ -339,7 +348,7 @@ const LandingPage = () => {
                 <Link
                   href='/demo'
                   prefetch
-                  onClick={() => playClick()}
+                  onClick={onStart}
                   className={clsx(
                     'inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-4 text-lg font-black tracking-wide uppercase',
                     'border-2 border-b-[6px] border-black bg-white text-black',
@@ -483,7 +492,7 @@ const LandingPage = () => {
                     <Link
                       href={node.href}
                       prefetch
-                      onClick={() => (locked ? undefined : playClick())}
+                      onClick={() => (locked ? undefined : onStart())}
                       aria-disabled={locked}
                       className={clsx(
                         'group flex h-20 w-20 items-center justify-center rounded-full',
@@ -745,7 +754,7 @@ const LandingPage = () => {
                   <Link
                     href='/learn-hiragana'
                     prefetch
-                    onClick={() => playClick()}
+                    onClick={onStart}
                     className={clsx(
                       'inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-4 text-lg font-black tracking-wide uppercase',
                       'border-b-[6px] border-black text-black',
@@ -760,7 +769,7 @@ const LandingPage = () => {
                   <Link
                     href='/kana-chart'
                     prefetch
-                    onClick={() => playClick()}
+                    onClick={onStart}
                     className={clsx(
                       'inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-4 text-lg font-black tracking-wide uppercase',
                       'border-2 border-b-[6px] border-white bg-transparent text-white',
