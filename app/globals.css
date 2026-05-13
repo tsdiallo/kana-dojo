@@ -6,6 +6,30 @@
 @theme {
   --breakpoint-xs: 30rem;
   --breakpoint-3xl: 110rem;
+
+  /* === Dojo Design System (Phase 1) ===
+   * Black / white / gold palette. Use via Tailwind utilities:
+   *   bg-dojo-gold, text-dojo-ink, border-dojo-mist, etc.
+   * Keep separate from legacy --main-color/--secondary-color tokens. */
+  --color-dojo-ink: #0a0a0a;
+  --color-dojo-ink-soft: #1a1a1a;
+  --color-dojo-paper: #fafaf7;
+  --color-dojo-mist: #f1f1ee;
+  --color-dojo-gold: #f5c518;
+  --color-dojo-gold-deep: #b8860b;
+  --color-dojo-gold-light: #ffe7a8;
+  --color-dojo-flame: #ff7a00;
+  --color-dojo-ruby: #e11d48;
+  --color-dojo-jade: #16a34a;
+  --color-dojo-sky: #0ea5e9;
+
+  --radius-dojo-sm: 0.5rem;
+  --radius-dojo-md: 0.75rem;
+  --radius-dojo-lg: 1rem;
+  --radius-dojo-xl: 1.25rem;
+  --radius-dojo-2xl: 1.5rem;
+  --radius-dojo-3xl: 2rem;
+  --radius-dojo-pill: 9999px;
 }
 
 body {
